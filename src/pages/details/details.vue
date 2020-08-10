@@ -8,7 +8,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { getPlaylistDetail } from 'api'
+import { getPlaylistDetail, getMusicDetail } from 'api'
 import MmLoading from 'base/mm-loading/mm-loading'
 import MusicList from 'components/music-list/music-list'
 import { formatTopSongs } from '@/utils/song'
@@ -28,12 +28,13 @@ export default {
   },
   created() {
     // 获取歌单详情
-    getPlaylistDetail(this.$route.params.id).then(res => {
-      if (res.data.code === 200) {
-        this.list = formatTopSongs(res.data.playlist.tracks)
-        document.title = `${res.data.playlist.name} - mmPlayer在线音乐播放器`
+    getPlaylistDetail(this.$route.params.id).then(({ playlist }) => {
+      document.title = `${playlist.name} - mmPlayer在线音乐播放器`
+      const ids = playlist.trackIds.map(v => v.id).toString()
+      getMusicDetail(ids).then(({ songs }) => {
+        this.list = formatTopSongs(songs)
         this._hideLoad()
-      }
+      })
     })
   },
   methods: {

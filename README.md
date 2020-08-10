@@ -1,13 +1,17 @@
-# mmPlayer V1.6.7（2020.05.02）启动 2.0 版本
+# mmPlayer V1.7.1（2020.07.11）
 
 模仿 QQ 音乐网页版界面，采用 `flexbox` 和 `position` 布局；
 mmPlayer 虽然是响应式，但主要以 PC 端为主，移动端只做相应适配（未做歌词显示）；
 只做主流浏览器兼容（对 IE 说拜拜，想想以前做项目还要兼容 IE7 ，都是泪啊！！！）
 
 > api：一个开源的[网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi)（有 api 才有动力写！！！）
-> [在线演示地址](http://music.mtnhao.com)
+>
+> [在线演示地址](https://netease-music.fe-mm.com/)
+>
 > [React 移动端版本（高仿网易云音乐）](https://github.com/maomao1996/react-music)
+>
 > [交流 QQ 群：529940193](http://shang.qq.com/wpa/qunwpa?idkey=f8be1b627a89108ccfda9308720d2a4d0eb3306f253c5d3e8d58452e20b91129)
+>
 > 本播放器由 [maomao1996](https://github.com/maomao1996) 开发，您可以随意修改、使用、转载。但使用或转载时请务必保留出处！！！
 
 ## 免责声明
@@ -56,7 +60,7 @@ node app.js
 
 ### 注意点
 
-**运行 mmPlayer 后无法获取音乐请检查后台 `api` 服务是否启动(即控制台请求报404)**
+**运行 mmPlayer 后无法获取音乐请检查后台 `api` 服务是否启动(即控制台请求报 404)**
 
 **线上部署不是直接将整个项目丢到服务器，再去运行 `npm run serve` 命令**
 
@@ -67,12 +71,14 @@ node app.js
 最近有不少小伙伴部署出了问题，我在这说明下
 
 - 后台 `api` 服务线上部署
+
   - 你需要将 [NeteaseCloudMusicApi](https://binaryify.github.io/NeteaseCloudMusicApi) 下载
   - 然后将下载的文件上传至服务器
   - 再通过 `pm2` 去启动服务(`pm2` 安装和相关命令网上有很多，这里不再赘述)
   - 最后通过服务器 `ip` + 端口号访问验证 `api` 服务是否启动成功
 
-- mmPlayer 线上部署
+- `mmPlayer` 线上部署
+
   - 首先要注意的是
   - 先将 `.env` 文件的 `VUE_APP_BASE_API_URL` 修改成上一步启动的后台 `api` 服务地址(服务器 `ip` + 端口号或者你绑定的域名)
   - 然后先在本地运行 `npm run build` 命令，会打包在生成一个 `dist` 文件
@@ -97,7 +103,6 @@ node app.js
 <details>
 <summary>展开查看</summary>
 <pre><code>
-├── mmPlayer                                        // 项目打包版本，可直接使用
 ├── public                                          // 静态资源目录
 │   └─index.html                                    // 入口 html 文件
 ├── screenshots                                     // 项目截图
@@ -175,6 +180,7 @@ node app.js
 └── vue.config.js                                   // vue-cli 配置文件
 
 </code></pre>
+
 </details>
 
 ## 功能
@@ -201,43 +207,60 @@ PC 端界面自我感觉还行， 就是移动端界面总觉得怪怪的，奈�
 
 #### 正在播放
 
-![正在播放](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/1.jpg)
+![正在播放](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/1.jpg)
 
 #### 排行榜
 
-![排行榜](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/2.jpg)
+![排行榜](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/2.jpg)
 
 #### 搜索
 
-![搜索](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/3.jpg)
+![搜索](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/3.jpg)
 
 #### 我的歌单
 
-![我的歌单](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/4.jpg)
+![我的歌单](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/4.jpg)
 
 #### 我听过的
 
-![我听过的](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/5.jpg)
+![我听过的](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/5.jpg)
 
 #### 歌曲评论
 
-![歌曲评论](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/6.jpg)
+![歌曲评论](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/6.jpg)
 
 ### 移动端
 
-![移动端一](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/7.jpg)
-![移动端二](https://raw.githubusercontent.com/maomao1996/Vue-mmPlayer/master/screenshots/8.jpg)
+![移动端一](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/7.jpg)
+![移动端二](https://cdn.jsdelivr.net/gh/maomao1996/Vue-mmPlayer/screenshots/8.jpg)
 
 </details>
 
 ## 更新说明
 
-### V1.6.7（2020.05.02）
+### V1.7.1（2020.07.11）
 
-- 优化进度条拖动，分离拖动进度和音乐播放进度
+- 新增 IE 提示页面
+- 统一错误处理
 
 <details>
 <summary>查看更多</summary>
+
+### V1.7.0（2020.06.27）
+
+- 移动端增加歌词显示
+
+### V1.6.9（2020.06.04）
+
+- 修改登录用户头像和网易云跳转地址为 https 协议
+
+### V1.6.8（2020.06.01）
+
+- 修复歌单详情获取不到完整歌曲详情问题
+
+### V1.6.7（2020.05.02）
+
+- 优化进度条拖动，分离拖动进度和音乐播放进度
 
 ### V1.6.6（2020.04.18）
 
@@ -426,4 +449,4 @@ PC 端界面自我感觉还行， 就是移动端界面总觉得怪怪的，奈�
 
 ## License
 
-[MIT](https://github.com/maomao1996/Vue-mmPlayer/blob/master/LICENSE)
+[MIT](https://github.com/maomao1996/Vue-mmPlayer/blob/LICENSE)
