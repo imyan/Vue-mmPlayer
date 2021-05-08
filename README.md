@@ -1,7 +1,7 @@
-# mmPlayer V1.7.1（2020.07.11）
+# mmPlayer
 
 模仿 QQ 音乐网页版界面，采用 `flexbox` 和 `position` 布局；
-mmPlayer 虽然是响应式，但主要以 PC 端为主，移动端只做相应适配（未做歌词显示）；
+mmPlayer 虽然是响应式，但主要以 PC 端为主，移动端只做相应适配；
 只做主流浏览器兼容（对 IE 说拜拜，想想以前做项目还要兼容 IE7 ，都是泪啊！！！）
 
 > api：一个开源的[网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi)（有 api 才有动力写！！！）
@@ -10,7 +10,7 @@ mmPlayer 虽然是响应式，但主要以 PC 端为主，移动端只做相应�
 >
 > [React 移动端版本（高仿网易云音乐）](https://github.com/maomao1996/react-music)
 >
-> [交流 QQ 群：529940193](http://shang.qq.com/wpa/qunwpa?idkey=f8be1b627a89108ccfda9308720d2a4d0eb3306f253c5d3e8d58452e20b91129)
+> [交流 QQ 群：529940193](http://shang.qq.com/wpa/qunwpa?idkey=f8be1b627a89108ccfda9308720d2a4d0eb3306f253c5d3e8d58452e20b91129) 本群不解答部署相关问题，如有部署问题请看[关于项目线上部署](#关于项目线上部署)
 >
 > 本播放器由 [maomao1996](https://github.com/maomao1996) 开发，您可以随意修改、使用、转载。但使用或转载时请务必保留出处！！！
 
@@ -22,7 +22,16 @@ mmPlayer 虽然是响应式，但主要以 PC 端为主，移动端只做相应�
 
 本项目仅为前端练手项目，请勿用作商业用途，请勿通过本项目下载盗版歌曲资源，否则后果自负！
 
-## 如何安装与使用
+## 安装与使用
+
+### 检查 node 版本
+
+```sh
+# 查看 node 版本，确保 node 版本高于 12 版本
+node -v
+```
+
+[Node.js 中文网](http://nodejs.cn/)
 
 ### mmPlayer
 
@@ -39,11 +48,11 @@ npm install
 # 本地运行 mmPlayer
 npm run serve
 
-# 项目打包（）
+# 编译打包
 npm run build
 ```
 
-### 后台 api 服务
+### 后台 api 服务（本地开发）
 
 [网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi)
 
@@ -172,7 +181,7 @@ node app.js
 │   │   ├── hack.js                                 // 修改 nextTick
 │   │   ├── mixin.js                                // 组件混合
 │   │   ├── song.js                                 // 数据处理
-│   │   ├── storage.js                              // localstorage 配置
+│   │   ├── storage.js                              // localStorage 配置
 │   │   └── util.js                                 // 公用 js 方法
 │   ├── App.vue                                     // 根组件
 │   ├── config.js                                   // 基本配置
@@ -238,13 +247,22 @@ PC 端界面自我感觉还行， 就是移动端界面总觉得怪怪的，奈�
 
 ## 更新说明
 
+### V1.8.1（2021.02.02）
+
+- 修复音乐进度条点击无效问题
+
+<details>
+<summary>查看更多</summary>
+
+### V1.8.0（2020.08.22）
+
+- 适配最新版后台 api
+- 修复背景图白边
+
 ### V1.7.1（2020.07.11）
 
 - 新增 IE 提示页面
 - 统一错误处理
-
-<details>
-<summary>查看更多</summary>
 
 ### V1.7.0（2020.06.27）
 
@@ -446,6 +464,10 @@ PC 端界面自我感觉还行， 就是移动端界面总觉得怪怪的，奈�
 - 如果您喜欢该作品，您可以点右上角 "Star" "Fork" 表示支持 谢谢！
 - 后续：移动端版本、其他作品
 - 如有问题请直接在 [Issues](https://github.com/maomao1996/Vue-mmPlayer/issues/new) 中提，或者您发现问题并有非常好的解决方案，欢迎 PR
+
+## 鸣谢
+
+特别感谢 [JetBrains](https://www.jetbrains.com/) 为开源项目提供免费的 [WebStorm](https://www.jetbrains.com/webstorm/) 授权
 
 ## License
 
